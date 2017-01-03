@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+  <script>
+    // The old runLevel function. Modify this...
+    function runLevel(level, Display, andThen) {
+      var display = new Display(document.body, level);
+      runAnimation(function(step) {
+        level.animate(step, arrows);
+        display.drawFrame(step);
+        if (level.isFinished()) {
+          display.clear();
+          if (andThen)
+            andThen(level.status);
+          return false;
+        }
+      });
+    }
+    runGame(GAME_LEVELS, DOMDisplay);
+  </script>
+  </body>
+</html>
