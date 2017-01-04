@@ -1,13 +1,5 @@
 function range(start,end,next){
-  if (next == null)
-  next=1;
-  var array=[];
-
-  if (next > 0) {
-    for (var i = start; i <= end; i += next)
-      array.push(i);
-}
-    else {
+  if  {
       for (var i = start; i >= end; i += next)
         array.push(i);
       }
