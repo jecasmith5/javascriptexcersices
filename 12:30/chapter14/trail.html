@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <style>
+      .trail { /* className for the trail elements */
+        position: absolute;
+        height: 6px; width: 6px;
+        border-radius: 3px;
+        background: teal;
+      }
+      body {
+        height: 300px;
+      }
+  </style>
+    <title></title>
+
+  </head>
+  <body>
+    <script>
+      var blocks=[];
+      for(i=0;i < 10; i++){
+        var design = document.createElement("div");
+        design.className="trail";
+        document.body.appendChild(design);
+        blocks.push(design);
+      }
+      var currentDesign=0;
+
+      addEventListener("mousemove",function(event){
+        var follow = blocks[currentDesign];
+
+        follow.style.left=event.pageX + 40 +"px";
+        follow.style.top=event.pageY + 20 +"px";
+
+      currentDesign=(currentDesign +1 ) % blocks.length;
+    });
+    </script>
+  </body>
+</html>
