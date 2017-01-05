@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+
+
+  </head>
+  <body>
+    <script>
+    var req = new XMLHttpRequest();
+    req.open("GET", "eloquentjavascript.net/author", true);
+    req.setRequestHeader("Accept","media types");
+    req.send(null);
+    console.log(req.Accept);
+    </script>
+  </body>
+</html>
+
+ tasks:
+
+ accept header that can be used to tll server what kind of type the socument the client wants
+
+ eloquentjavascript.net/author
+
+ media types text/plain, text/html, and application/json.
+
+ Send requests to fetch all three formats of this resource.
+ Use the setRequestHeader method of your XMLHttpRequest object to set the header named Accept to one of the media types given earlier
+ Make sure you set the header after calling open but before calling send.
+
+ try asking for the media type application/rainbows+unicorns and see what happens.
