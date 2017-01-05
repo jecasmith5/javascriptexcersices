@@ -4,31 +4,42 @@
     <meta charset="utf-8">
     <title></title>
     <script>
-    var mediaTypes =["text/plain",  "text/html","application/json"];
+    var mediaTypes =["text/plain",  "text/html","application/json","application/rainbows+unicorns"];
+        //added rainbows and unicorns
+    function diffTypes(mediaType) {
+          var req = new XMLHttpRequest();
+          req.open("GET", "http://eloquentjavascript.net/author", true);
+          req.setRequestHeader("Accept",mediaType);
+          req.send(null);
+      	  return req.responseText;
+        }
+        mediaTypes.forEach(function(mediaType){
+          console.log(diffTypes(mediaType));
+        });
+
+
+
+
+// this code doesnt work
+    	// function output(diffTypes){
+    	//    for(var i = 0;i<mediaTypes.length;i++){
+      //     var type=mediaTypes[i];
+      //    console.log(mediaTypes , diffTypes(type));
+      //   }
+      // };
+      // diffTypes(mediaTypes[0]);
+      // output(diffTypes);
+
 
     // function diffTypes(mediaTypes) {
-    //       var req = new XMLHttpRequest();
-    //       req.open("GET", "eloquentjavascript.net/author", true);
-    //       req.setRequestHeader("Accept",mediaTypes);
-    //       req.send(null);
-    //   	  return req.responseText;
-    //     }
-    // 	function output(diffTypes){
-    // 	for(var i = 0;i<mediaTypes.length;i++){
-    //       var type=mediaTypes[i];
-    //      console.log(mediaTypes , diffTypes(type));
-    //     }
-    //   };
-    
-    function diffTypes(mediaTypes) {
-      var req = new XMLHttpRequest();
-      req.open("GET", "eloquentjavascript.net/author", false);
-      req.setRequestHeader("Accept",mediaTypes);
-      req.send(null);
-      return req.responseText;
-    };
-    var mediaTypes =["text/plain",  "text/html","application/json"];
-    console.log(diffTypes,mediaTypes[0]);
+    //   var req = new XMLHttpRequest();
+    //   req.open("GET", "eloquentjavascript.net/author", false);
+    //   req.setRequestHeader("Accept",mediaTypes);
+    //   req.send(null);
+    //   return req.responseText;
+    // };
+    // var mediaTypes =["text/plain",  "text/html","application/json"];
+    // console.log(diffTypes,mediaTypes[0]);
     </script>
 
   </head>
