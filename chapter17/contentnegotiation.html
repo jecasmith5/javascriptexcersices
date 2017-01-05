@@ -10,7 +10,12 @@
     <script>
     var req = new XMLHttpRequest();
     req.open("GET", "eloquentjavascript.net/author", true);
-    req.setRequestHeader("Accept","media types");
+    mediaType= [ "text/plain",
+                "text/html",
+                "application/json"
+              ];
+    req.setRequestHeader("Accept", mediaType);
+
     req.send(null);
     console.log(req.Accept);
     </script>
