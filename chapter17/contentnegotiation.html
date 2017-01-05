@@ -3,30 +3,46 @@
   <head>
     <meta charset="utf-8">
     <title></title>
+    <script>
+    var mediaTypes =["text/plain",  "text/html","application/json"];
 
+    // function diffTypes(mediaTypes) {
+    //       var req = new XMLHttpRequest();
+    //       req.open("GET", "eloquentjavascript.net/author", true);
+    //       req.setRequestHeader("Accept",mediaTypes);
+    //       req.send(null);
+    //   	  return req.responseText;
+    //     }
+    // 	function output(diffTypes){
+    // 	for(var i = 0;i<mediaTypes.length;i++){
+    //       var type=mediaTypes[i];
+    //      console.log(mediaTypes , diffTypes(type));
+    //     }
+    //   };
+    
+    function diffTypes(mediaTypes) {
+      var req = new XMLHttpRequest();
+      req.open("GET", "eloquentjavascript.net/author", false);
+      req.setRequestHeader("Accept",mediaTypes);
+      req.send(null);
+      return req.responseText;
+    };
+    var mediaTypes =["text/plain",  "text/html","application/json"];
+    console.log(diffTypes,mediaTypes[0]);
+    </script>
 
   </head>
   <body>
-    <script>
-    var req = new XMLHttpRequest();
-    req.open("GET", "eloquentjavascript.net/author", true);
-    mediaType= [ "text/plain",
-                "text/html",
-                "application/json"
-              ];
-    req.setRequestHeader("Accept", mediaType);
 
-    req.send(null);
-    console.log(req.Accept);
-    </script>
   </body>
 </html>
 
- tasks:
+
+
+
+ <!-- tasks:
 
  accept header that can be used to tll server what kind of type the socument the client wants
-
- eloquentjavascript.net/author
 
  media types text/plain, text/html, and application/json.
 
@@ -34,4 +50,4 @@
  Use the setRequestHeader method of your XMLHttpRequest object to set the header named Accept to one of the media types given earlier
  Make sure you set the header after calling open but before calling send.
 
- try asking for the media type application/rainbows+unicorns and see what happens.
+ try asking for the media type application/rainbows+unicorns and see what happens. -->
