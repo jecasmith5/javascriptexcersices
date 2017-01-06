@@ -5,16 +5,16 @@
     <title></title>
     <script>
     function all(multiPromises) {
-    return new Promise(function(success, fail) {
+      return new Promise(function(success, fail) {
       var results = [], counterStatus = multiPromises.length;
-      multiPromises.forEach(function(promise, i) {
-        promise.then(function(result) {
-          results[i] = result;
-          counterStatus -= 1;
-          if (counterStatus == 0)
-            success(results);
-        }, function(error) {
-          fail(error);
+        multiPromises.forEach(function(promise, i) {
+          promise.then(function(result) {
+            results[i] = result;
+            counterStatus -= 1;
+              if (counterStatus == 0)
+                success(results);
+              }, function(error) {
+                 fail(error);
         });
       });
       if (multiPromises.length == 0){
