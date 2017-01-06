@@ -4,17 +4,28 @@
     <meta charset="utf-8">
     <title></title>
     <script>
-    function all(promises) {
-  return new Promise(function(success, fail) {
-    for(var i = 0; i < all.length; i++){
-      var result = [];
-      var done=Promise[i]-1;
+    function all(multiPromises) {
+    return new Promise(function(success, fail) {
+      var results = [], counterStatus = multiPromises.length;
+      multiPromises.forEach(function(promise, i) {
+        promise.then(function(result) {
+          results[i] = result;
+          counterStatus -= 1;
+          if (counterStatus == 0)
+            success(results);
+        }, function(error) {
+          fail(error);
+        });
+      });
+      if (multiPromises.length == 0){
+        success(results);
+      }
 
-    }
-  });
-}
+    });
+  }
 
-// Test code.
+//only giving output for first two
+
 all([]).then(function(array) {
   console.log("This should be []:", array);
 });
