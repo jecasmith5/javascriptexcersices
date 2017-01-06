@@ -9,14 +9,27 @@
 <div id="suggestions" style="cursor: pointer"></div>
 
 <script>
-  // Builds up an array with global variable names, like
-  // 'alert', 'document', and 'scrollTo'
   var terms = [];
-  for (var name in window)
+for (var name in window)
     terms.push(name);
 
-  // Your code here.
-</script>
+var inputText = document.getElementById('field');
+var sugggestions = document.getElementById('suggestions');
 
+inputText.addEventListener("input", function(event){
+  sugggestions.innerHTML= '';
+  var next = inputText.value.lastIndexOf(" ")+1;
+  var check = inputText.value.slice(next);
+  var reg = new RegExp(check);
+    for (var i=0; i < terms.length; i++) {
+      if (reg.test(terms[i])){
+        var text = document.createTextNode(terms[i] + ' ');
+        sugggestions.appendChild(text)};
+      };
+
+});
+//cannot click text yet to complete word and needs to clear after erasing
+
+</script>
   </body>
 </html>

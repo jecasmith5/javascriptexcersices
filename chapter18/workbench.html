@@ -14,8 +14,14 @@
   button.addEventListener('click', function(){
       var code=document.getElementById("code");
       var output=document.getElementById('output');
-      var jscode = new Function(code.value)();
-    output.innerText = String(jscode);
+
+      try{
+        var jscode = new Function(code.value)();
+        output.innerText = String(jscode);
+      }catch(error) {
+        console.log(error);
+      }
+
 
   });
   </script>
