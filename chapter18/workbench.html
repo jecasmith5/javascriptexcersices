@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <textarea id="code">return "hi";</textarea>
+    <button id="button">Run</button>
+    <pre id="output"></pre>
+
+  <script>
+  var button = document.getElementById("button");
+  button.addEventListener('click', function(){
+      var code=document.getElementById("code");
+      var output=document.getElementById('output');
+      var jscode = new Function(code.value)();
+    output.innerText = String(jscode);
+
+  });
+  </script>
+  </body>
+</html>
