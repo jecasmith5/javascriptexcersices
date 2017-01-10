@@ -5,12 +5,21 @@
     <title></title>
     <script>
 
-    var obj={}
+    var obj={
+      0:2
+    };
+    var convert=parseInt(Object.values(obj));
     function number(x){
-      return typeof x == "number" ;
+      if (typeof x == "number"){
+          return x=x;
+      }else{
+        return x=NaN;
+      }
     }
-    console.log(number(3));
+    console.log(number(convert));
     //outputs true for number, false if not
+    //true-outputs number
+    //false-NaN
     </script>
   </head>
   <body>
