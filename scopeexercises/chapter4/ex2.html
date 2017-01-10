@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <script>
+    var arr=[1,2,3,4,5,6,7,8,9,20];
+    var sum = function (array,count){
+    if(count<array.length){
+      return array[count] + sum(array, count += 1);
+    }else{
+      return 0;
+    }
+}
+    var add = 0;
+    var count=0;
+    add = add + sum(arr, count);
+    console.log(add);
+    </script>
+  </head>
+  <body>
+
+  </body>
+</html>
