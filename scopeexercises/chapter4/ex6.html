@@ -4,9 +4,58 @@
     <meta charset="utf-8">
     <title></title>
     <script>
+    function distance(){
+      //var distance=undefined;
+      //distance formula
+      //square root (x2-x2)^2+(y2-y1)^2
+      //sqr root = Math.sqrt()
+      //square numbers=Math.pow with second argument of 2
+      function arrayParameters(array){
+        for (var i = 0; i < array.length; i++) {
+          if(typeof array[i] !=numbers ){
+            return false;
+          }else {
+            return true;
+          }
+        }
+      }
+      try{
+          if(arguments.length == 4){
+            var points2d=Math.sqrt(Math.pow(arguments[2]-arguments[0],2)+Math.pow(arguments[3]-arguments[1],2));
+            console.log(points2d);
 
+            //find distance for 2 points
+          }
+          else if(arguments.length==6){
+            var points3d=Math.sqrt(Math.pow(arguments[2]-arguments[0],2)+Math.pow(arguments[3]-arguments[1],2)+Math.pow(arguments[5]-arguments[2],2));
+            console.log(points3d);
+            //find distance for 2 3d points
+          }
+          else if (arguments.length==2) { //2d 3d arrays
+            if (Array.isArray(arguments[0]) && Array.isArray(arguments[1])) { // both arrays
+             var points = 0;
+             for (let i=0;i<arguments[0].length;i++) {
+               points+=Math.pow(arguments[0][i]-arguments[1][i],2);
+            }
+            console.log(Math.sqrt(points));
+            }
+          }
 
-
+          else {
+            throw new Error("Insufficient parameters");
+            //if not 2 points/3d points
+          }
+      }catch(e){
+        console.warn(e);
+        //catches error
+      }
+    }
+    distance(x1=1,y1=2,x2=3,y2=3);
+    distance(x1=1,y1=2,z1=4,x2=3,y2=3,z2=4);
+    distance(x1=2);
+    distance(["hi",2],[3,3]);
+    distance([2,2],[3,3]);
+    distance([2,2,2],[3,3,4]);
 
 
     </script>
