@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <script>
+      function Image(data,width,height,name) {
+        this.img.data = data;
+        this.img.width = width;
+        this.img.height = height;
+        this.img.name = name;
+        this.img.pixelData = function (x,y) {
+          return data[x+y*width];
+        };
+      }
+      var data = new Array(1600);
+      for (i=0;i<data.length;i++) {
+        data[i]=i;
+      }
+      var img = new Image(data,40,40,'myImage');
+      console.log(img.width);
+      console.log(img.height);
+      console.log(img.name);
+      console.log(img.pixelData(22,4));
+
+      //cant get to console.log
+    </script>
+  </body>
+</html>

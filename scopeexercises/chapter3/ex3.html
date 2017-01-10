@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <script>
+    var myMath = {
+      add: function() {
+        var ans = 0;
+        for (i=0;i<arguments.length;i++) {
+          ans += arguments[i];
+        }
+        return ans;
+      },
+      multiply: function() {
+        var ans = 1;
+        for (i=0;i<arguments.length;i++) {
+          ans *= arguments[i];
+        }
+        return ans;
+      },
+      fact: function(x) {
+        var ans = 1;
+        for (i=1;i<=x;i++)
+        {ans*=i;}
+        return ans;
+      }
+    }
+    console.log(myMath.add(1,2,3));
+    console.log(myMath.multiply(2,4,9));
+    console.log(myMath.fact(4));
+    </script>
+  </body>
+</html>

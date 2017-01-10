@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <script>
+    function multiply(x,y){
+      var ans = [x*y];
+      //simple multiply
+      var i=0;
+      while(ans[i]>=10){
+        if (ans[i]>12)
+        ans.push(Math.floor(ans[i]/13));
+        ans[i]=ans[i]%13;
+         i++;
+         //change to base 13
+       }
+      var answer = "";
+      for (var j=ans.length-1;j>=0;j--) {
+         answer = answer + ans[j];
+     }
+       return answer;
+}
+  console.log(multiply(9,6));
+    </script>
+  </body>
+</html>
