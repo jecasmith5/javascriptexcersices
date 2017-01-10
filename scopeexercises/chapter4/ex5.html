@@ -6,16 +6,32 @@
     <script>
       function distance(){
         var distance=undefined;
+        //distance formula
+        //square root (x2-x2)^2+(y2-y1)^2
+        //sqr root = Math.sqrt()
+        //square numbers=Math.pow with second argument of 2
         try{
-
-        }catch{
-
+            if(arguments.length == 4){
+              var points2d=Math.sqrt(Math.pow(arguments[2]-arguments[0],2)+Math.pow(arguments[3]-arguments[1],2));
+              console.log(points2d);
+              //find distance for 2 points
+            }
+            else if(arguments.length==6){
+              var points3d=Math.sqrt(Math.pow(arguments[2]-arguments[0],2)+Math.pow(arguments[3]-arguments[1],2)+Math.pow(arguments[5]-arguments[2],2));
+              console.log(points3d);
+              //find distance for 2 3d points
+            }else {
+              throw new Error("Insufficient parameters");
+              //if not 2 points/3d points
+            }
+        }catch(e){
+          console.warn(e);
+          //catches error
         }
       }
-      var x1 = 1, y1 = 2, z1 = 1;
-      var x2 = 2, y2 = 2, z2 = 4;
-      var delta1 = distance (x1, y1, x2, y2); // delta = 1 var delta2 = distance (x1, y1, z1, x2, y2, z2); // delta = 3.1622…
-      distance (x1, x2); // should throw an error: Insufficient parameters
+      distance(x1=1,y1=2,x2=3,y2=3);
+      distance(x1=1,y1=2,z1=4,x2=3,y2=3,z2=4);
+      distance(x1=2);
     </script>
   </head>
   <body>
