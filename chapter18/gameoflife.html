@@ -1,10 +1,43 @@
-<div id="grid"></div>
-<button id="next">Next generation</button>
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <div id="grid"></div>
+    <button id="next">Next generation</button>
 
-<script>
-  var gridDiv = document.getElementById("grid");
-  var button = document.getElementById('next');
-  var cell;
-  
+    <script>
+      var gridWidth=50;
+      var gridHeight=50;
+      var gridArea=gridHeight * gridWidth;
+      var gridDiv = document.getElementById("grid")
+      var button = document.getElementById("next");
+      var cells=[];
 
-</script>
+        for (var y = 0; y < gridHeight; y++) {
+          for (var x = 0; x < gridWidth; x++) {
+            var singleCell = document.createElement("input");
+            singleCell.type = "checkbox";
+            gridDiv.appendChild(singleCell);
+            cells.push(singleCell);
+          }
+          gridDiv.appendChild(document.createElement("line"));
+        }
+        //everything above here creates the grid and checkboxes
+        function ifChecked(){
+          if(singleCell===true){
+            //needs to define what happens when its checked in regard to neighbors
+          }
+        }
+          function randomGrid() {
+              var result = [];
+              for (var i = 0; i < gridArea ; i++)
+                result.push(Math.random() < 0.3);
+              return result;
+            }
+        //when clicked create new grid
+    </script>
+  </body>
+</html>

@@ -1,4 +1,4 @@
-var accounts=[
+var account=[
   {accountNumber:"A042718",accountBalance:500.00},
   {accountNumber:"A042719",accountBalance: 1000.00}
 ];
@@ -12,7 +12,7 @@ console.log(number);
 //   this.number="";
 //   this.balance="";
 // }
-function deposit(x,number){
+function deposit(x){
   if(x > balance){
     console.log("deposit can not be made");
   }else{
@@ -20,8 +20,8 @@ function deposit(x,number){
     console.log('your balance is' + " " + balance);
   }
 
-
-deposit(400.00,number);
+}
+deposit(400.00);
 
 
 // A bank that holds client’s information:
