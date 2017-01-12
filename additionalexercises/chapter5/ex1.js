@@ -1,38 +1,57 @@
-var account=[
-  {accountNumber:"A042718",accountBalance:500.00},
-  {accountNumber:"A042719",accountBalance: 1000.00}
-];
-var balance=account.accountBalance;
-var number=account.accountNumber;
-console.log(balance);
-console.log(number);
-
-
-// function account(){
-//   this.number="";
-//   this.balance="";
-// }
-function deposit(x){
-  if(x > balance){
-    console.log("deposit can not be made");
-  }else{
-    balance += x;
-    console.log('your balance is' + " " + balance);
+function MyBank(){ //create bank
+  var bank={};
+  function Account(balance){ //create account
+    var _balance=balance;
+    this.getBalance=function(){
+      return _balance;//account balance
+    };
+    this.deposit = function(money){
+      _balance += money;//deposit
+    };
+    this.withdraw=function(money){
+      _balance -= money;
+    };
   }
+    function AddClient(accountNumber,cash){
+      var _cash=cash;
+      var _accountNumber = accountNumber;
+      bank[accountNumber] = new Account(0);//creates new account for client
 
+      this.deposit = function (clientAccount,money){
+      //deposit to account
+      if(_cash>money){
+        bank[clientAccount].deposit(money);
+        console.log("Deposit sucessful");// can not deposit more
+
+      }else {
+        console.warn("Deposit can not be made");// can not deposit more
+      }
+    }
 }
-deposit(400.00);
+      this.withdraw = function (money){
+        if (bank[_accountNumber].getBalance() > money){
+        bank[_accountNumber].withdraw(money);
+         _cash += money;
+        console.log("withdraw sucessful");
+      }else{
+        console.log("Insufficient Funds!");
+      }
+    };
 
+   this.cash = function () {
+     return _cash;
+   };
+   this.balance = function () {
+     return bank[_accountNumber].getBalance();
+    };
+    this.AddClient = AddClient;
+}
+var central = new MyBank();
+var jess = new central.AddClient(1234,20000);
+var lex = new central.AddClient(5989,50000);
 
-// A bank that holds client’s information:
-// account number;
-// balance
-
-// A set of clients where each can:
-// hold money of their own;
-// deposit money into the bank (to any account);
-// retrieve money from the bank (from personal account only);
-// view current balance in bank (from personal account only)
-// A client cannot deposit more money than what it has;
-// A client cannot retrieve more money that what is in its account;
-// All financial information must be private
+jess.deposit(1234,200);
+jess.deposit(5989,200);
+//only deposit is working
+jess.withdraw(200);
+jess.cash();

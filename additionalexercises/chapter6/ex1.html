@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <script>
+    function Shape(pEdges,fnDisplay){
+    this.pEdges=pEdges;
+    this.fnDisplay=fnDisplay;
+
+  }
+    function Quadrilateral(fnArea,fnPerimeter){}
+      Quadrilateral.prototype=new Shape();
+
+    function Square(){}
+      Square.prototype= new Quadrilateral();
+
+
+
+    </script>
+  </body>
+</html>

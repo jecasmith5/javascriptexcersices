@@ -9,34 +9,39 @@
     <button id="next">Next generation</button>
 
     <script>
-      var gridWidth=50;
-      var gridHeight=50;
+      var gridWidth=20;
+      var gridHeight=20;
       var gridArea=gridHeight * gridWidth;
       var gridDiv = document.getElementById("grid")
       var button = document.getElementById("next");
       var cells=[];
-
+        randomGrid();
         for (var y = 0; y < gridHeight; y++) {
+          var line=document.createElement("div");
           for (var x = 0; x < gridWidth; x++) {
             var singleCell = document.createElement("input");
             singleCell.type = "checkbox";
-            gridDiv.appendChild(singleCell);
+            line.appendChild(singleCell);
             cells.push(singleCell);
           }
-          gridDiv.appendChild(document.createElement("line"));
+          gridDiv.appendChild(line);
+
         }
         //everything above here creates the grid and checkboxes
         function ifChecked(){
           if(singleCell===true){
-            //needs to define what happens when its checked in regard to neighbors
+            for (var i = 0; i < line.length; i++) {
+              cells = array[i]
+            }
           }
         }
           function randomGrid() {
               var result = [];
               for (var i = 0; i < gridArea ; i++)
-                result.push(Math.random() < 0.3);
+                result.push(Math.random() < 0.5);
               return result;
             }
+
         //when clicked create new grid
     </script>
   </body>
