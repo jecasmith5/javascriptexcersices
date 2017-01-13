@@ -1,58 +1,35 @@
-<!doctype html>
-
-<div id="wrapper">
-  <div data-tabname="one">Tab one</div>
-  <div data-tabname="two">Tab two</div>
-  <div data-tabname="three">Tab three</div>
-</div>
-
-<style>
-	button {background: #444; width: 100px; height: 50px; outline: none; border-radius: 5px; color: #dedede; border: 0; margin: 5px;}
-</style>
-
-<script>
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <div id="wrapper">
+    <div data-tabname="one">Tab one</div>
+    <div data-tabname="two">Tab two</div>
+    <div data-tabname="three">Tab three</div>
+  </div>
+  <script>
   function asTabs(node) {
-    // Your code here.
-	var tabs = [];
-	for(var i = 1; i < node.childNodes.length; i++) {
-		var child = node.childNodes[i];
-		if(child.nodeType == document.ELEMENT_NODE) {
-			tabs.push(child);
-		}
-	}
+    var tabs = Array.prototype.slice.call(node.children)
+    var buttons = [];
+    tabs.forEach(function(eachTab){
+      var button=document.createElement('button');
+      button.textContent=eachTab.getAttribute('data-tabname');
+      document.body.appendChild(button);
+      eachTab.classList.add("eachTab");
 
-	var list = document.createElement('div');
-
-	tabs.forEach(function(tab, i) {
-		var button = document.createElement('button');
-		button.textContent = tab.getAttribute('data-tabname');
-		button.addEventListener('click', function() { selectTab(i); });
-		list.appendChild(button);
-	});
-
-	node.insertBefore(list, node.firstChild);
-
-	function selectTab(n) {
-		tabs.forEach(function(tab, i) {
-		    if(i === n) {
-		        tab.style.display = '';
-				    tab.style.padding = '15px 0';
-		  } else {
-				    tab.style.display = 'none';
-			}
-		});
-		for (var i = 0; i < list.childNodes.length; i++) {
-	        if (i == n) {
-				list.childNodes[i].style.background = "aqua";
-        list.childNodes[i].style.color = "black";
-
-			} else {
-				list.childNodes[i].style.background = "";
-			}
-		}
-	}
-
-	selectTab(0);
+      button.addEventListener("click", function() {
+        console.log("tab" + " " + button.textContent + " " + "is active");
+      })
+    })
   }
+
+
   asTabs(document.querySelector("#wrapper"));
-</script>
+
+
+//   </script>
+  </body>
+ </html>
