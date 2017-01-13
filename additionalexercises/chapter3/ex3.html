@@ -8,24 +8,26 @@
     <script>
     var myMath = {
       add: function() {
-        var ans = 0;
-        for (i=0;i<arguments.length;i++) {
-          ans += arguments[i];
+        var sum = 0;
+        for (var i=0;i<arguments.length;i++) {
+          sum += arguments[i];
         }
-        return ans;
+        return sum;
       },
       multiply: function() {
-        var ans = 1;
-        for (i=0;i<arguments.length;i++) {
-          ans *= arguments[i];
+        var multiple = 1;
+        for (var i=0;i<arguments.length;i++) {
+          multiple *= arguments[i];
         }
-        return ans;
+        return multiple;
       },
       fact: function(x) {
-        var ans = 1;
-        for (i=1;i<=x;i++)
-        {ans*=i;}
-        return ans;
+        var f = [];
+        if(x == 0 || x == 1)
+          return 1;
+        if(f[x] > 0)
+          return f[x];
+        return f[x] = (x-1) * x;
       }
     }
     console.log(myMath.add(1,2,3));

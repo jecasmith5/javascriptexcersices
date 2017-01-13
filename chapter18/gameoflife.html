@@ -11,11 +11,10 @@
     <script>
       var gridWidth=20;
       var gridHeight=20;
-      var gridArea=gridHeight * gridWidth;
+      var gridArea= gridHeight * gridWidth
       var gridDiv = document.getElementById("grid")
       var button = document.getElementById("next");
       var cells=[];
-        randomGrid();
         for (var y = 0; y < gridHeight; y++) {
           var line=document.createElement("div");
           for (var x = 0; x < gridWidth; x++) {
@@ -35,12 +34,13 @@
             }
           }
         }
-          function randomGrid() {
+          function randomGrid(checked) {
               var result = [];
               for (var i = 0; i < gridArea ; i++)
                 result.push(Math.random() < 0.5);
               return result;
             }
+            randomGrid(ifChecked());
 
         //when clicked create new grid
     </script>

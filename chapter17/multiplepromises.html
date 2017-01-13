@@ -6,15 +6,16 @@
     <script>
     function all(multiPromises) {
       return new Promise(function(success, fail) {
+        //mycode
       var results = [], counterStatus = multiPromises.length;
         multiPromises.forEach(function(promise, i) {
           promise.then(function(result) {
             results[i] = result;
             counterStatus -= 1;
               if (counterStatus == 0)
-                success(results);
+                success(results);//resolve
               }, function(error) {
-                 fail(error);
+                 fail(error);//reject
         });
       });
       if (multiPromises.length == 0){
@@ -23,6 +24,7 @@
 
     });
   }
+//since this is suppossed to be a function simulating how promise all works am i stil supposed to resolve and reject the promise or just leave as is?
 
 //only giving output for first two
 
